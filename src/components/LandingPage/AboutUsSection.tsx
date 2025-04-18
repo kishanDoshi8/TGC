@@ -4,25 +4,13 @@ import React from 'react';
 const AboutUsSection = () => {
   return (
     <section className="container mx-auto p-4">
-      <h2 className="text-3xl font-semibold text-center mb-8">About Us</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <img
-          src="https://picsum.photos/600/400"
-          alt="SubStop Express Team"
-          className="rounded-lg shadow-md object-cover h-full w-full"
-        />
-        <div>
-          <p className="text-lg text-muted-foreground mb-4">
-            SubStop Express was founded with a simple mission: to provide fresh,
-            delicious, and affordable sub sandwiches to our community.
-          </p>
-          <p className="text-lg text-muted-foreground">
-            We are passionate about using high-quality ingredients and providing
-            exceptional service. Our team is dedicated to making your experience
-            at SubStop Express a memorable one.
-          </p>
-        </div>
-      </div>
+      <h2 className="text-4xl lg:text-5xl mb-4 text-center">
+        Get to Know Us Better
+      </h2>
+      <p className="text-lg text-muted-foreground mb-6 lg:max-w-[50%] max-w-full mx-auto">
+        TGC Subs & Convenience, located in Trenton, Canada, is dedicated to providing top-notch subs and sandwiches while also running a convenient store. Our goal is to serve the best quality food along with a variety of everyday essentials, all backed by exceptional customer service. Come visit us for a delicious meal and all your convenience needs!
+      </p>
+      
     </section>
   );
 };

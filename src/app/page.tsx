@@ -13,11 +13,12 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex flex-col gap-16 py-8">
+      <main className="flex flex-col gap-16">
         <HeroSection />
         <TopPicksSection />
         <RewardsSection />
         <AboutUsSection />
+        <hr />
         <ContactSection />
       </main>
     </>

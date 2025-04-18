@@ -1,6 +1,7 @@
-import {ArrowRight, Check, ChevronsUpDown, Circle, Copy, Edit, ExternalLink, File, HelpCircle, Home, Loader2, Mail, MessageSquare, Moon, Plus, PlusCircle, Search, Server, Settings, Share2, Shield, Sun, Trash, User, X, Workflow} from 'lucide-react';
+import {ArrowRight, Check, ChevronsUpDown, Circle, Copy, Edit, ExternalLink, File, HelpCircle, Home, Loader2, Mail, MessageSquare, Moon, Plus, PlusCircle, Search, Server, Settings, Share2, Shield, Sun, Trash, User, X, Workflow } from 'lucide-react'
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
-const Icons = {
+const Icons: Record<string, any> = {
   arrowRight: ArrowRight,
   check: Check,
   chevronDown: ChevronsUpDown,
@@ -28,6 +29,9 @@ const Icons = {
   spinner: Loader2,
   trash: Trash,
   user: User,
+  facebook: FaFacebook,
+  instagram: FaInstagram,
+  twitter: FaTwitter,
 };
 
 export {Icons};
