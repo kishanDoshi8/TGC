@@ -167,10 +167,10 @@ const MenuPage = () => {
         <h1 className="text-4xl lg:text-5xl mb-4">
           Subs Menu
         </h1>
-        <div className="flex gap-12">
+        <div className="flex gap-12 flex-col md:flex-row">
           <div className="flex-1 px-8">
             {/* Signature subs */}
-            <h3 className='my-4 text-2xl'>Signature Subs</h3>
+            <h3 className='my-4 text-2xl font-bold'>Signature Subs</h3>
             <ul>
               {signatureSubs.map((sub, index) => (
                 <li className="mb-6">
@@ -189,7 +189,7 @@ const MenuPage = () => {
               ))}
             </ul>
             {/* Classic subs */}
-            <h3 className='mb-4 mt-8 text-2xl'>Classic Subs</h3>
+            <h3 className='mb-4 mt-8 text-2xl font-bold'>Classic Subs</h3>
             <ul>
               {classicSubs.map((sub, index) => (
                 <li className="mb-6">
@@ -210,7 +210,7 @@ const MenuPage = () => {
           </div>
           <div className="flex-1 px-8">
             {/* Salads */}
-            <h3 className='my-4 text-2xl'>Salads and Soups</h3>
+            <h3 className='my-4 text-2xl font-bold'>Salads and Soups</h3>
             {salads.map((salad, index) => (
               <div key={index} className="mb-6">
                 <hr className='opacity-50' />
@@ -223,7 +223,7 @@ const MenuPage = () => {
               </div>
             ))}
             {/* Kids Menu */}
-            <h3 className='mb-4 mt-8 text-2xl'>Kids Menu</h3>
+            <h3 className='mb-4 mt-8 text-2xl font-bold'>Kids Menu</h3>
             {kidsMenu.map((item, index) => (
               <div key={index} className="mb-6">
                 <hr className='opacity-50' />
@@ -236,7 +236,7 @@ const MenuPage = () => {
               </div>
             ))}
             {/* Create Your Own */}
-            <h3 className='mb-2 mt-8 text-2xl'>TGC Platter</h3>
+            <h3 className='mb-2 mt-8 text-2xl font-bold'>TGC Platter</h3>
             <hr className="opacity-50" />
             <h4 className="mt-6 text-lg">Create Your Own Platter ($60)</h4>
             <p className="text-sm italic mb-4">Choose any 5 subs from our delicious selection of 7 specially curated options</p>

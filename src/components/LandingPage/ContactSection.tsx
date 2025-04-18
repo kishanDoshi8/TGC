@@ -4,12 +4,32 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import { Icons } from '../icons';
+import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 
 const ContactSection = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  });
+
+  const variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
+    <motion.section
+      ref={ref}
+      variants={variants}
+      initial="hidden"
+      animate={inView ? 'visible' : 'hidden'}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="container mx-auto p-4"
+    >
     <section className="container mx-auto p-4">
       <h2 className="text-4xl lg:text-5xl mb-4 text-center">
         TGC SUBS & CONVENIENCE
@@ -41,15 +61,15 @@ const ContactSection = () => {
             <label htmlFor='guests' className='text-sm text-muted-foreground'>Number of guests</label>
             <Input id='guests' type="number" />
           </div>
-           <div className="col-span-2 flex flex-col">
-              <label htmlFor="event" className="text-sm text-muted-foreground">When's the event?</label>
+          <div className="col-span-2 flex flex-col">
+            <label htmlFor="event" className="text-sm text-muted-foreground">When's the event?</label>
               <DatePicker
                 id="event"
                 className={cn(
                   "mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
                 )}
                 />
-            </div>
+          </div>
           <Button className="col-span-2">Submit</Button>
         </form>
         <div className="flex gap-8 mx-auto">
@@ -71,6 +91,7 @@ const ContactSection = () => {
         </div>
       </div>
     </section>
+    </motion.section>
   );
 };
 
