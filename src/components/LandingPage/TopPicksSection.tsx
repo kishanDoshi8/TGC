@@ -52,15 +52,15 @@ const TopPicksSection = () => {
   }, [controls, inView]);
 
   return (
-    <motion.section ref={ref} animate={controls} className="container mx-auto p-4 text-center">
+    <motion.section ref={ref} animate={controls} initial={{ opacity:0, y: 50 }} className="container mx-auto p-4 text-center">
       <h2  className="text-4xl lg:text-5xl mb-4">
         Top Picks
       </h2>
       <p className="text-lg text-muted-foreground mb-6 lg:max-w-[50%] max-w-full mx-auto">Discover our top 3 best-selling sandwiches, freshly made with quality ingredients. Each sandwich is crafted to perfection to satisfy your cravings.</p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 p-12">
         {topPicks.map((pick, index) => (
           <Card key={index} className="bg-primary text-primary-foreground">
-            <CardHeader>
+            <CardHeader className="py-12">
               <CardTitle>{pick.title}</CardTitle>
               <CardDescription>{pick.description}</CardDescription>
             </CardHeader>

@@ -1,4 +1,5 @@
 
+import { ContactSection } from '@/components/LandingPage';
 import Navbar from '@/components/Navbar';
 import React from 'react';
 
@@ -161,94 +162,98 @@ const MenuPage = () => {
   ];
 
   return (
-    <div className="bg-primary">
+    <>
       <Navbar />
-      <div className="container text-primary-foreground mx-auto p-4 mt-12">
-        <h1 className="text-4xl lg:text-5xl mb-4">
-          Subs Menu
-        </h1>
-        <div className="flex gap-12 flex-col md:flex-row">
-          <div className="flex-1 px-8">
-            {/* Signature subs */}
-            <h3 className='my-4 text-2xl font-bold'>Signature Subs</h3>
-            <ul>
-              {signatureSubs.map((sub, index) => (
-                <li className="mb-6">
+      <div className="bg-primary">
+        <div className="container text-primary-foreground mx-auto p-4 pt-12">
+          <h1 className="text-4xl lg:text-5xl mb-4">
+            Subs Menu
+          </h1>
+          <div className="flex gap-12 flex-col md:flex-row">
+            <div className="flex-1 px-8">
+              {/* Signature subs */}
+              <h3 className='my-4 text-2xl font-bold'>Signature Subs</h3>
+              <ul>
+                {signatureSubs.map((sub, index) => (
+                  <li className="mb-6">
+                    <hr className='opacity-50' />
+                    <h4 className="mt-6 text-lg">{sub.name}</h4>
+                    <p className="text-sm italic mb-4">{sub.description}</p>
+                    <p className="flex justify-between">
+                      <span>Regular</span>
+                      <span>{sub.regularPrice}</span>
+                    </p>
+                    <p className="flex justify-between">
+                      <span>Large</span>
+                      <span>{sub.largePrice}</span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              {/* Classic subs */}
+              <h3 className='mb-4 mt-8 text-2xl font-bold'>Classic Subs</h3>
+              <ul>
+                {classicSubs.map((sub, index) => (
+                  <li className="mb-6">
+                    <hr className='opacity-50' />
+                    <h4 className="mt-6 text-lg">{sub.name}</h4>
+                    <p className="text-sm italic mb-4">{sub.description}</p>
+                    <p className="flex justify-between">
+                      <span>Regular</span>
+                      <span>{sub.regularPrice}</span>
+                    </p>
+                    <p className="flex justify-between">
+                      <span>Large</span>
+                      <span>{sub.largePrice}</span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex-1 px-8">
+              {/* Salads */}
+              <h3 className='my-4 text-2xl font-bold'>Salads and Soups</h3>
+              {salads.map((salad, index) => (
+                <div key={index} className="mb-6">
                   <hr className='opacity-50' />
-                  <h4 className="mt-6 text-lg">{sub.name}</h4>
-                  <p className="text-sm italic mb-4">{sub.description}</p>
+                  <h4 className="mt-6 text-lg">{salad.name}</h4>
+                  <p className="text-sm italic mb-4">{salad.description}</p>
                   <p className="flex justify-between">
-                    <span>Regular</span>
-                    <span>{sub.regularPrice}</span>
+                    <span>Price</span>
+                    <span>{salad.price}</span>
                   </p>
-                  <p className="flex justify-between">
-                    <span>Large</span>
-                    <span>{sub.largePrice}</span>
-                  </p>
-                </li>
+                </div>
               ))}
-            </ul>
-            {/* Classic subs */}
-            <h3 className='mb-4 mt-8 text-2xl font-bold'>Classic Subs</h3>
-            <ul>
-              {classicSubs.map((sub, index) => (
-                <li className="mb-6">
+              {/* Kids Menu */}
+              <h3 className='mb-4 mt-8 text-2xl font-bold'>Kids Menu</h3>
+              {kidsMenu.map((item, index) => (
+                <div key={index} className="mb-6">
                   <hr className='opacity-50' />
-                  <h4 className="mt-6 text-lg">{sub.name}</h4>
-                  <p className="text-sm italic mb-4">{sub.description}</p>
+                  <h4 className="mt-6 text-lg">{item.name}</h4>
+                  <p className="text-sm italic mb-4">{item.description}</p>
                   <p className="flex justify-between">
-                    <span>Regular</span>
-                    <span>{sub.regularPrice}</span>
+                    <span>Price</span>
+                    <span>{item.price}</span>
                   </p>
-                  <p className="flex justify-between">
-                    <span>Large</span>
-                    <span>{sub.largePrice}</span>
-                  </p>
-                </li>
+                </div>
               ))}
-            </ul>
-          </div>
-          <div className="flex-1 px-8">
-            {/* Salads */}
-            <h3 className='my-4 text-2xl font-bold'>Salads and Soups</h3>
-            {salads.map((salad, index) => (
-              <div key={index} className="mb-6">
-                <hr className='opacity-50' />
-                <h4 className="mt-6 text-lg">{salad.name}</h4>
-                <p className="text-sm italic mb-4">{salad.description}</p>
-                <p className="flex justify-between">
-                  <span>Price</span>
-                  <span>{salad.price}</span>
-                </p>
-              </div>
-            ))}
-            {/* Kids Menu */}
-            <h3 className='mb-4 mt-8 text-2xl font-bold'>Kids Menu</h3>
-            {kidsMenu.map((item, index) => (
-              <div key={index} className="mb-6">
-                <hr className='opacity-50' />
-                <h4 className="mt-6 text-lg">{item.name}</h4>
-                <p className="text-sm italic mb-4">{item.description}</p>
-                <p className="flex justify-between">
-                  <span>Price</span>
-                  <span>{item.price}</span>
-                </p>
-              </div>
-            ))}
-            {/* Create Your Own */}
-            <h3 className='mb-2 mt-8 text-2xl font-bold'>TGC Platter</h3>
-            <hr className="opacity-50" />
-            <h4 className="mt-6 text-lg">Create Your Own Platter ($60)</h4>
-            <p className="text-sm italic mb-4">Choose any 5 subs from our delicious selection of 7 specially curated options</p>
-            {createYourOwn.map((item, index) => (
-              <div key={index} className="mb-6">
-                <h4 className="mt-6 text-lg">{item}</h4>
-              </div>
-            ))}
+              {/* Create Your Own */}
+              <h3 className='mb-2 mt-8 text-2xl font-bold'>TGC Platter</h3>
+              <hr className="opacity-50" />
+              <h4 className="mt-6 text-lg">Create Your Own Platter ($60)</h4>
+              <p className="text-sm italic mb-4">Choose any 5 subs from our delicious selection of 7 specially curated options</p>
+              {createYourOwn.map((item, index) => (
+                <div key={index} className="mb-6">
+                  <h4 className="mt-6 text-lg">{item}</h4>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <hr />
+      <ContactSection />
+    </>
   );
 };
 
