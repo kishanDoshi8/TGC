@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Baby, Check, Flame, Phone, Salad, Sandwich, Search, Star, Users, X } from 'lucide-react';
@@ -16,6 +15,7 @@ import {
   type Sub,
 } from '@/data/menu';
 import { cn } from '@/lib/utils';
+import SubArt from '@/components/SubArt';
 
 type Size = 'regular' | 'large';
 
@@ -258,11 +258,9 @@ function SubCard({ sub, size, index }: { sub: Sub; size: Size; index: number }) 
       transition={{ duration: 0.35, delay: Math.min(index, 6) * 0.03 }}
       className="group flex scroll-mt-40 gap-4 rounded-3xl bg-card p-5 shadow-sm ring-1 ring-foreground/5 transition-shadow hover:shadow-lg target:ring-2 target:ring-primary"
     >
-      {sub.image && (
-        <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl bg-secondary">
-          <Image src={sub.image} alt="" fill sizes="80px" className="object-cover transition-transform duration-500 group-hover:scale-110" />
-        </div>
-      )}
+      <div className="flex w-20 shrink-0 items-center justify-center rounded-2xl bg-secondary px-2 py-3 sm:w-24">
+        <SubArt fillings={sub.fillings} className="w-full" />
+      </div>
       <div className="flex min-w-0 flex-1 flex-col">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">

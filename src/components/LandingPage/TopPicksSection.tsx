@@ -1,10 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, Flame } from 'lucide-react';
 import Reveal from '@/components/Reveal';
+import SubArt, { fillingLabels } from '@/components/SubArt';
 import { slugify, topPicks } from '@/data/menu';
 
 const TopPicksSection = () => {
@@ -32,15 +32,9 @@ const TopPicksSection = () => {
                 href={`/menu#${slugify(pick.menuName)}`}
                 className="group block overflow-hidden rounded-3xl bg-card shadow-sm ring-1 ring-foreground/5 transition-shadow hover:shadow-xl"
               >
-                <div className="relative aspect-square overflow-hidden bg-secondary">
-                  <Image
-                    src={pick.image}
-                    alt={pick.title}
-                    fill
-                    placeholder="blur"
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
+                <div className="bg-dots relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-secondary px-6 text-foreground">
+                  <div aria-hidden className="absolute inset-x-10 bottom-6 top-10 rounded-full bg-accent/25 blur-2xl transition-opacity duration-500 group-hover:opacity-70" />
+                  <SubArt fillings={pick.fillings} className="relative w-full max-w-[300px] transition-transform duration-500 ease-out group-hover:scale-105" />
                   <span className="absolute left-4 top-4 inline-flex items-center gap-1 rounded-full bg-card/90 px-3 py-1 text-xs font-semibold backdrop-blur">
                     <Flame className="h-3.5 w-3.5 text-primary" /> #{i + 1} seller
                   </span>
@@ -48,7 +42,13 @@ const TopPicksSection = () => {
                 <div className="flex items-end justify-between gap-4 p-6">
                   <div>
                     <h3 className="text-2xl font-bold">{pick.title}</h3>
-                    <p className="mt-1 text-muted-foreground">{pick.blurb}</p>
+                    <ul className="mt-3 flex flex-wrap gap-1.5">
+                      {[...new Set(pick.fillings)].map((f) => (
+                        <li key={f} className="rounded-full bg-secondary px-2.5 py-1 text-xs font-medium text-muted-foreground">
+                          {fillingLabels[f]}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                   <div className="shrink-0 text-right">
                     <p className="text-xs uppercase tracking-wider text-muted-foreground">from</p>
